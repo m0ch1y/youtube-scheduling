@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Drawer from "@mui/material/Drawer";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Typography } from "@mui/material";
+import TodoList from "./TodoList";
 
 export default function TemporaryDrawer() {
   const [open, setopen] = useState(false);
@@ -25,7 +27,10 @@ export default function TemporaryDrawer() {
         onClose={toggleOpen}
         PaperProps={{ style: { width: "20%" } }}
       >
-        <p>hello</p>
+        <Typography variant="h6" textAlign={"center"} mt={2}>
+          登録チャンネル
+        </Typography>
+        <TodoList />
       </Drawer>
     </div>
   );
