@@ -9,7 +9,7 @@ function appBarLabel(label) {
   return (
     <Toolbar>
       <Sidebar />
-      <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
+      <Typography variant="h5" noWrap component="div" sx={{ flexGrow: 1 }}>
         {label}
       </Typography>
     </Toolbar>
@@ -29,7 +29,7 @@ export default function EnableColorOnDarkAppBar() {
   return (
     <ThemeProvider theme={darkTheme}>
       <AppBar position="static" color="primary">
-        {appBarLabel("Youtube-scheduling")}
+        {appBarLabel("Youtube Scheduler")}
       </AppBar>
     </ThemeProvider>
   );
