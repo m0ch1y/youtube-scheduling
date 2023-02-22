@@ -9,7 +9,7 @@ function appBarLabel(label) {
   return (
     <Toolbar>
       <Sidebar />
-      <Typography variant="h5" noWrap component="div" sx={{ flexGrow: 1 }}>
+      <Typography variant="h4" noWrap component="div" sx={{ flexGrow: 1 }}>
         {label}
       </Typography>
     </Toolbar>
