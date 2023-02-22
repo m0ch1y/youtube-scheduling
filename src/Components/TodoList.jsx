@@ -42,7 +42,7 @@ const TodoList = () => {
           }}
         />
         <Button color="primary" onClick={handleAddTodo}>
-          <AddCircleIcon />
+          <AddCircleIcon fontSize="large" />
         </Button>
       </Stack>
       <ul style={{ listStyle: "none" }}>

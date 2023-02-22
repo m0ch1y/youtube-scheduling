@@ -19,7 +19,7 @@ export default function TemporaryDrawer() {
         onClick={toggleOpen}
         sx={{ mr: 2 }}
       >
-        <MenuIcon />
+        <MenuIcon fontSize="large" />
       </IconButton>
       <Drawer
         anchor="left"
