@@ -28,7 +28,7 @@ const darkTheme = createTheme({
 export default function EnableColorOnDarkAppBar() {
   return (
     <ThemeProvider theme={darkTheme}>
-      <AppBar position="static" color="primary">
+      <AppBar position="fixed" color="primary">
         {appBarLabel("Youtube Scheduler")}
       </AppBar>
     </ThemeProvider>
