@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Stack } from "@mui/system";
 import MultiActionAreaCard from "./Card";
+import Grid from "@mui/material/Grid";
 
 const API_KEY = "[AIzaSyAfgXgEXhOnaifKoqovi94AAAFiPQ-MI3A]";
 
@@ -23,13 +23,23 @@ function Api({ content }) {
     getYoutubeData();
   }, [url]);
   return (
-    <div>
-      <MultiActionAreaCard />
-      <MultiActionAreaCard />
-      <MultiActionAreaCard />
-      <MultiActionAreaCard />
-      <MultiActionAreaCard />
-    </div>
+    <Grid container spacing={3} justifyContent="center">
+      <Grid item>
+        <MultiActionAreaCard />
+      </Grid>
+      <Grid item>
+        <MultiActionAreaCard />
+      </Grid>
+      <Grid item>
+        <MultiActionAreaCard />
+      </Grid>
+      <Grid item>
+        <MultiActionAreaCard />
+      </Grid>
+      <Grid item>
+        <MultiActionAreaCard />
+      </Grid>
+    </Grid>
   );
 }
 

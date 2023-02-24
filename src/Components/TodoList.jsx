@@ -1,4 +1,4 @@
-import { Button, TextField } from "@mui/material";
+import { IconButton, TextField } from "@mui/material";
 import { Stack } from "@mui/system";
 import { useEffect, useState } from "react";
 import Todo from "./Todo";
@@ -42,9 +42,9 @@ const TodoList = () => {
             setInputText(e.target.value);
           }}
         />
-        <Button color="primary" onClick={handleAddTodo}>
+        <IconButton color="primary" onClick={handleAddTodo}>
           <AddCircleIcon fontSize="large" />
-        </Button>
+        </IconButton>
       </Stack>
       <ul style={{ listStyle: "none" }}>
         {todos.map((item, index) => {
