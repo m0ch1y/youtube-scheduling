@@ -34,6 +34,7 @@ const TodoList = () => {
     <div>
       <Stack direction={"row"} p={1} justifyContent="center">
         <TextField
+          fullWidth
           id="standard-basic"
           label="入力"
           variant="standard"
