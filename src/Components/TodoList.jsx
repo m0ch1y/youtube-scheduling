@@ -19,7 +19,7 @@ const TodoList = () => {
 
   const handleAddTodo = () => {
     if (inputText === "") {
-      alert("空文字列は追加できません。");
+      alert("空文字列は入力できません。");
     } else {
       setTodos([
         ...todos,
