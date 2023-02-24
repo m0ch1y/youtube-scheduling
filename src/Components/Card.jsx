@@ -23,12 +23,12 @@ export default function ActionAreaCard() {
             variant="h7"
             component="div"
           >
-            time
+            time_iuput
           </Typography>
           <Stack ml={1} direction={"row"} spacing={4}>
             <YouTubeIcon fontSize="large" sx={{ color: "red" }} />
             <Typography gutterBottom variant="h6" component="div">
-              title
+              title_input
             </Typography>
           </Stack>
         </CardContent>
