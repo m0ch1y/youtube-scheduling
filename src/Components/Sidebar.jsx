@@ -25,7 +25,7 @@ export default function TemporaryDrawer() {
         anchor="left"
         open={open}
         onClose={toggleOpen}
-        PaperProps={{ style: { width: "20%" } }}
+        PaperProps={{ style: { width: "22%" } }}
       >
         <Typography variant="h6" textAlign={"center"} mt={2}>
           登録チャンネル
