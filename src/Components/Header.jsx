@@ -5,6 +5,29 @@ import Typography from "@mui/material/Typography";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Sidebar from "./Sidebar";
 
+const darkTheme = createTheme({
+  palette: {
+    primary: {
+      main: "#333132",
+    },
+    secondary: {
+      main: "#0067C0",
+    },
+    text: {
+      primary: "#ffffff", // アイコンやテキストの色を変更したい場合に指定する
+    },
+  },
+  components: {
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          backgroundColor: "#333132",
+        },
+      },
+    },
+  },
+});
+
 function appBarLabel(label) {
   return (
     <Toolbar>
@@ -15,15 +38,6 @@ function appBarLabel(label) {
     </Toolbar>
   );
 }
-
-const darkTheme = createTheme({
-  palette: {
-    mode: "dark",
-    primary: {
-      main: "#1976d2",
-    },
-  },
-});
 
 export default function EnableColorOnDarkAppBar() {
   return (

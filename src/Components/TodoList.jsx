@@ -2,7 +2,6 @@ import { IconButton, TextField } from "@mui/material";
 import { Stack } from "@mui/system";
 import { useEffect, useState } from "react";
 import Todo from "./Todo";
-import Contents from "./Contents";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 
 const TodoList = () => {
@@ -57,7 +56,6 @@ const TodoList = () => {
                 todos={todos}
                 setTodos={setTodos}
               />
-              <Contents content={item.content}></Contents>
             </li>
           );
         })}
