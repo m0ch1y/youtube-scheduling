@@ -25,6 +25,39 @@ const darkTheme = createTheme({
         },
       },
     },
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          "& .MuiInputLabel-root": {
+            color: "white", // ラベルの色を変更する
+          },
+          "& .MuiInputBase-input": {
+            color: "white", // 入力文字列の色を変更する
+          },
+          "& .MuiOutlinedInput-root": {
+            "& fieldset": {
+              borderColor: "white", // アウトラインの色を変更する
+            },
+            "&:hover fieldset": {
+              borderColor: "yellow", // ホバー時のアウトラインの色を変更する
+            },
+          },
+          backgroundColor: "#333132", // 背景色を変更する
+        },
+      },
+    },
+    MuiInput: {
+      styleOverrides: {
+        underline: {
+          "&::before": {
+            borderBottomColor: "gray", // アクティブ時の下線の色を変更する
+          },
+          "&::after": {
+            borderBottomColor: "white", // アクティブでないときの下線の色を変更する
+          },
+        },
+      },
+    },
   },
 });
 

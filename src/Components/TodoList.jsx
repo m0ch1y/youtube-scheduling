@@ -42,7 +42,7 @@ const TodoList = () => {
             setInputText(e.target.value);
           }}
         />
-        <IconButton color="primary" onClick={handleAddTodo}>
+        <IconButton color="secondary" onClick={handleAddTodo}>
           <AddCircleIcon fontSize="large" />
         </IconButton>
       </Stack>
