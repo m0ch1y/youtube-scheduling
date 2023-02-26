@@ -26,8 +26,12 @@ function Api() {
   }, [searchTerm]);
 
   const fetchVideos = async () => {
+    const now = new Date().toISOString();
+    const nextWeek = new Date(
+      Date.now() + 7 * 24 * 60 * 60 * 1000
+    ).toISOString();
     const response = await axios.get(
-      `${BASE_URL}/search?key=${API_KEY}&channelId=${channelId}&part=snippet&eventType=upcoming&type=video`
+      `${BASE_URL}/search?key=${API_KEY}&channelId=${channelId}&part=snippet&eventType=upcoming&type=video&publishedBefore=${nextWeek}&publishedAfter=${now}`
     );
     const videoData = response.data.items.map((item) => {
       return {
@@ -37,7 +41,7 @@ function Api() {
         thumbnail: item.snippet.thumbnails.maxres.url,
         startTime:
           item.snippet.liveBroadcastContent === "upcoming"
-            ? item.snippet.liveBroadcastContent
+            ? item.snippet.scheduledStartTime
             : null,
       };
     });

@@ -2,7 +2,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { IconButton, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
 
-const Todo = ({ content, index, todos, setTodos }) => {
+const keyword = ({ content, index, todos, setTodos }) => {
   const handleTodoDelete = () => {
     const newTodos = [...todos];
     newTodos.splice(index, 1);
@@ -20,4 +20,4 @@ const Todo = ({ content, index, todos, setTodos }) => {
   );
 };
 
-export default Todo;
+export default keyword;

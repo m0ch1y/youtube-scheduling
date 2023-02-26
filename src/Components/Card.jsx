@@ -7,12 +7,12 @@ import { CardActionArea } from "@mui/material";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import { Stack } from "@mui/system";
 
-export default function ActionAreaCard({title,thumbnail,url,startTime}) {
+export default function ActionAreaCard({ title, thumbnail, url }) {
   return (
     <Card sx={{ maxWidth: 245 }}>
       <CardActionArea href={url} target="_blank" rel="noopener">
-          <Stack ml={1} direction={"row"} spacing={1}>
-            <YouTubeIcon fontSize="large" sx={{ color: "red" }} />
+        <Stack ml={1} direction={"row"} spacing={1}>
+          <YouTubeIcon fontSize="large" sx={{ color: "red" }} />
           <Typography
             className="text-left"
             gutterBottom
@@ -20,18 +20,14 @@ export default function ActionAreaCard({title,thumbnail,url,startTime}) {
             component="div"
             pt={0.6}
           >
-            {startTime}
+            no
           </Typography>
-          </Stack>
-        <CardMedia
-          component="img"
-          height="140"
-          image={thumbnail}
-        />
+        </Stack>
+        <CardMedia component="img" height="120" image={thumbnail} />
         <CardContent>
-            <Typography gutterBottom variant="h6" component="div">
-              {title}
-            </Typography>
+          <Typography gutterBottom variant="h6" component="div">
+            {title}
+          </Typography>
         </CardContent>
       </CardActionArea>
     </Card>

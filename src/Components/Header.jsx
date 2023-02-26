@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -61,7 +61,7 @@ const darkTheme = createTheme({
   },
 });
 
-function appBarLabel(label) {
+const appBarLabel = (label) => {
   return (
     <Toolbar>
       <Sidebar />
@@ -70,7 +70,7 @@ function appBarLabel(label) {
       </Typography>
     </Toolbar>
   );
-}
+};
 
 export default function EnableColorOnDarkAppBar() {
   return (

@@ -1,7 +1,7 @@
 import "./App.css";
 import Header from "./Components/Header";
-import Contents from "./Components/Contents";
-import { createTheme}  from "@mui/material";
+import Api from "./Components/Api";
+import { createTheme } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
 
 const theme = createTheme({
@@ -19,12 +19,12 @@ const theme = createTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
-    <div className="App">
-      <Header />
-      <body>
-        <Contents />
-      </body>
-    </div>
+      <div className="App">
+        <Header />
+        <body>
+          <Api />
+        </body>
+      </div>
     </ThemeProvider>
   );
 }
