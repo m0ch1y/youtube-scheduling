@@ -48,7 +48,7 @@ export default function TemporaryDrawer({ handleSubmit, videos, setVideos }) {
           <IconButton
             color="secondary"
             onClick={() => {
-              console.log("aaa");
+              handleSubmit(searchTerm);
             }}
           >
             <AddCircleIcon fontSize="large" />

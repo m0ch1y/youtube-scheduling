@@ -8,18 +8,25 @@ function Content({ videos }) {
     return (
       <div>
         {videos.map((detailData, index) => (
-          <Grid key={index} container spacing={3} justifyContent="center">
-            {detailData.details.map((video) => (
-              <Grid key={video.id} item>
-                <div>
-                  <Card
-                    title={video.title}
-                    thumbnail={video.thumbnail}
-                    url={video.url}
-                  />
-                </div>
-              </Grid>
-            ))}
+          <Grid
+            key={index}
+            container
+            spacing={4}
+            style={{ overflowX: "scroll" }}
+          >
+            <div style={{ display: "flex", width: "4600px" }}>
+              {detailData.details.map((video) => (
+                <Grid key={video.id} ml={6} mr={2} mt={8} mb={4} item>
+                  <div>
+                    <Card
+                      title={video.title}
+                      thumbnail={video.thumbnail}
+                      url={video.url}
+                    />
+                  </div>
+                </Grid>
+              ))}
+            </div>
           </Grid>
         ))}
       </div>
