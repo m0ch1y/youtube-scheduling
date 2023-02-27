@@ -41,7 +41,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .indent {
-  padding-top: 40px;
+  padding-top: 64px;
 }
 
 @keyframes App-logo-spin {

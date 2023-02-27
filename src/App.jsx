@@ -105,7 +105,10 @@ function App() {
     const json = JSON.stringify(videos);
     localStorage.setItem("videos", json);
   }, [videos]);
-
+  console.log(videos[0]["details"][0]["url"]);
+  if (!videos) {
+    return <></>;
+  }
   return (
     <ThemeProvider theme={theme}>
       <div className="App">

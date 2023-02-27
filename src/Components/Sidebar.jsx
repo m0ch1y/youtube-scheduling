@@ -6,7 +6,7 @@ import { Typography } from "@mui/material";
 import { TextField } from "@mui/material";
 import { Stack } from "@mui/system";
 import Name from "./keyword";
-import AddCircleIcon from "@mui/icons-material/AddCircle";
+// import AddCircleIcon from "@mui/icons-material/AddCircle";
 import axios from "axios";
 
 export default function TemporaryDrawer({ videos, setVideos }) {
@@ -20,7 +20,7 @@ export default function TemporaryDrawer({ videos, setVideos }) {
     if (searchTerm === "") {
       alert("空文字は入力できません。");
     } else {
-      const searchUrl = `https://www.googleapis.com/youtube/v3/search?q=${searchTerm}&key=${process.env.REACT_APP_API_KEY}&part=snippet&type=video&eventType=completed&maxResults=5`;
+      const searchUrl = `https://www.googleapis.com/youtube/v3/search?q=${searchTerm}&key=${process.env.REACT_APP_API_KEY}&part=snippet&type=video&eventType=completed&maxResults=8`;
       const response = await axios.get(searchUrl);
       const videoData = response.data.items.map((item) => {
         return {
@@ -41,6 +41,13 @@ export default function TemporaryDrawer({ videos, setVideos }) {
     setSearchTerm("");
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault(); // Enterキーによる改行を無効化する
+      handleSubmit(searchTerm);
+    }
+  };
+
   return (
     <div>
       <IconButton
@@ -56,7 +63,9 @@ export default function TemporaryDrawer({ videos, setVideos }) {
         anchor="left"
         open={open}
         onClose={toggleOpen}
-        PaperProps={{ style: { width: "22%" } }}
+        PaperProps={{
+          style: { width: "20%", minWidth: "220px", maxWidth: "300px" },
+        }}
       >
         <Typography variant="h6" textAlign={"center"} mt={2}>
           登録チャンネル
@@ -71,10 +80,11 @@ export default function TemporaryDrawer({ videos, setVideos }) {
             onChange={(e) => {
               setSearchTerm(e.target.value);
             }}
+            onKeyPress={handleKeyPress}
           />
-          <IconButton color="secondary" onClick={handleSubmit}>
+          {/* <IconButton color="secondary" onClick={handleSubmit}>
             <AddCircleIcon fontSize="large" />
-          </IconButton>
+          </IconButton> */}
         </Stack>
         <ul style={{ listStyle: "none" }}>
           {videos.map((item, index) => {

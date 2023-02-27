@@ -39,7 +39,7 @@ const darkTheme = createTheme({
               borderColor: "white", // アウトラインの色を変更する
             },
             "&:hover fieldset": {
-              borderColor: "yellow", // ホバー時のアウトラインの色を変更する
+              borderColor: "gray", // ホバー時のアウトラインの色を変更する
             },
           },
           backgroundColor: "#333132", // 背景色を変更する
@@ -62,8 +62,6 @@ const darkTheme = createTheme({
 });
 
 export default function EnableColorOnDarkAppBar({ videos, setVideos }) {
-  console.log(videos);
-  console.log(typeof videos);
   return (
     <ThemeProvider theme={darkTheme}>
       <AppBar position="fixed" color="primary">
