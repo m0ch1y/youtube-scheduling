@@ -61,22 +61,26 @@ const darkTheme = createTheme({
   },
 });
 
-const appBarLabel = (label) => {
-  return (
-    <Toolbar>
-      <Sidebar />
-      <Typography variant="h5" noWrap component="div" sx={{ flexGrow: 1 }}>
-        {label}
-      </Typography>
-    </Toolbar>
-  );
-};
-
-export default function EnableColorOnDarkAppBar() {
+export default function EnableColorOnDarkAppBar({
+  handleSubmit,
+  videos,
+  setVideos,
+}) {
+  console.log(videos);
+  console.log(typeof videos);
   return (
     <ThemeProvider theme={darkTheme}>
       <AppBar position="fixed" color="primary">
-        {appBarLabel("Youtube Scheduler")}
+        <Toolbar>
+          <Sidebar
+            handleSubmit={handleSubmit}
+            videos={videos}
+            setVideos={setVideos}
+          />
+          <Typography variant="h5" noWrap component="div" sx={{ flexGrow: 1 }}>
+            Youtube Scheduler
+          </Typography>
+        </Toolbar>
       </AppBar>
     </ThemeProvider>
   );

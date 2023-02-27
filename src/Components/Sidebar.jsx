@@ -5,36 +5,11 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { Typography } from "@mui/material";
 import { TextField } from "@mui/material";
 import { Stack } from "@mui/system";
-import { useEffect } from "react";
 import Name from "./keyword";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 
-export default function TemporaryDrawer() {
-  const data = localStorage.getItem("todos")
-    ? JSON.parse(localStorage.getItem("todos"))
-    : [];
-  const [inputText, setInputText] = useState("");
-  const [todos, setTodos] = useState(data);
-
-  useEffect(() => {
-    const json = JSON.stringify(todos);
-    localStorage.setItem("todos", json);
-  }, [todos]);
-
-  const handleAddTodo = () => {
-    if (inputText === "") {
-      alert("空文字列は入力できません。");
-    } else {
-      setTodos([
-        ...todos,
-        {
-          content: inputText,
-        },
-      ]);
-    }
-    setInputText("");
-  };
-
+export default function TemporaryDrawer({ handleSubmit, videos, setVideos }) {
+  const [searchTerm, setSearchTerm] = useState("");
   const [open, setopen] = useState(false);
   const toggleOpen = () => {
     setopen(!open);
@@ -65,24 +40,29 @@ export default function TemporaryDrawer() {
             id="standard-basic"
             label="入力"
             variant="standard"
-            value={inputText}
+            value={searchTerm}
             onChange={(e) => {
-              setInputText(e.target.value);
+              setSearchTerm(e.target.value);
             }}
           />
-          <IconButton color="secondary" onClick={handleAddTodo}>
+          <IconButton
+            color="secondary"
+            onClick={() => {
+              console.log("aaa");
+            }}
+          >
             <AddCircleIcon fontSize="large" />
           </IconButton>
         </Stack>
         <ul style={{ listStyle: "none" }}>
-          {todos.map((item, index) => {
+          {videos.map((item, index) => {
             return (
               <li key={index}>
                 <Name
-                  content={item.content}
+                  content={item.keyword}
                   index={index}
-                  todos={todos}
-                  setTodos={setTodos}
+                  todos={videos}
+                  setTodos={setVideos}
                 />
               </li>
             );
