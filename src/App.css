@@ -2,6 +2,18 @@
   text-align: center;
 }
 
+body::-webkit-scrollbar {
+  width: 0px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #ffffff;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -39,6 +51,27 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* .scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #e6e6fa #ffffff;
+} */
+
+.scroll {
+  overflow-x: scroll;
+}
+
+.scroll::-webkit-scrollbar {
+  height: 2px;
+}
+
+.scroll::-webkit-scrollbar-track {
+  background-color: #efefff;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background-color: #cdcdff;
 }
 
 @tailwind base;
