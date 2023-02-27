@@ -7,13 +7,41 @@ import { TextField } from "@mui/material";
 import { Stack } from "@mui/system";
 import Name from "./keyword";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
+import axios from "axios";
 
-export default function TemporaryDrawer({ handleSubmit, videos, setVideos }) {
+export default function TemporaryDrawer({ videos, setVideos }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [open, setopen] = useState(false);
   const toggleOpen = () => {
     setopen(!open);
   };
+
+  const handleSubmit = async (event) => {
+    if (searchTerm === "") {
+      alert("空文字は入力できません。");
+    } else {
+      //"AIzaSyAfgXgEXhOnaifKoqovi94AAAFiPQ-MI3A";
+      const searchUrl = `https://www.googleapis.com/youtube/v3/search?q=${searchTerm}&key=${process.env.API_KEY}&part=snippet&type=video&eventType=completed&maxResults=5`;
+      const response = await axios.get(searchUrl);
+      const videoData = response.data.items.map((item) => {
+        return {
+          id: item.id.videoId,
+          url: `https://www.youtube.com/watch?v=${item.id.videoId}`,
+          title: item.snippet.title,
+          thumbnail: item.snippet.thumbnails.high.url,
+        };
+      });
+      setVideos([
+        ...videos,
+        {
+          keyword: searchTerm,
+          details: videoData,
+        },
+      ]);
+    }
+    setSearchTerm("");
+  };
+
   return (
     <div>
       <IconButton
@@ -45,12 +73,7 @@ export default function TemporaryDrawer({ handleSubmit, videos, setVideos }) {
               setSearchTerm(e.target.value);
             }}
           />
-          <IconButton
-            color="secondary"
-            onClick={() => {
-              handleSubmit(searchTerm);
-            }}
-          >
+          <IconButton color="secondary" onClick={handleSubmit}>
             <AddCircleIcon fontSize="large" />
           </IconButton>
         </Stack>
