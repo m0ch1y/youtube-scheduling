@@ -20,8 +20,7 @@ export default function TemporaryDrawer({ videos, setVideos }) {
     if (searchTerm === "") {
       alert("空文字は入力できません。");
     } else {
-      //"AIzaSyAfgXgEXhOnaifKoqovi94AAAFiPQ-MI3A";
-      const searchUrl = `https://www.googleapis.com/youtube/v3/search?q=${searchTerm}&key=${process.env.API_KEY}&part=snippet&type=video&eventType=completed&maxResults=5`;
+      const searchUrl = `https://www.googleapis.com/youtube/v3/search?q=${searchTerm}&key=${process.env.REACT_APP_API_KEY}&part=snippet&type=video&eventType=completed&maxResults=5`;
       const response = await axios.get(searchUrl);
       const videoData = response.data.items.map((item) => {
         return {
