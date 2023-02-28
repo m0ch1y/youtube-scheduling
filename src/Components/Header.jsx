@@ -4,7 +4,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Sidebar from "./Header_Components/Sidebar";
-import Popup from "./Popup";
+import Popup from "./Header_Components/Popup";
 
 const darkTheme = createTheme({
   palette: {
