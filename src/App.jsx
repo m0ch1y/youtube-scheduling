@@ -1,5 +1,5 @@
 import "./App.css";
-import "./Components/Sidebar";
+import "./Components/Header_Components/Sidebar";
 import Header from "./Components/Header";
 import Content from "./Components/Content";
 import { createTheme } from "@mui/material";
