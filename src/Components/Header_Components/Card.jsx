@@ -2,7 +2,7 @@ import * as React from "react";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import { CardActionArea } from "@mui/material";
-import Popover from "./Popover";
+import Popover from "../Popover";
 
 export default function ActionAreaCard({ title, thumbnail, url }) {
   return (

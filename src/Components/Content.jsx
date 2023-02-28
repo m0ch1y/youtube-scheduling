@@ -1,5 +1,5 @@
 import { Box, Stack } from "@mui/material";
-import Card from "./Card";
+import Card from "./Header_Components/Card";
 
 function Content({ videos }) {
   if (videos === []) {

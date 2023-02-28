@@ -3,7 +3,7 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import Sidebar from "./Sidebar";
+import Sidebar from "./Header_Components/Sidebar";
 import Popup from "./Popup";
 
 const darkTheme = createTheme({
