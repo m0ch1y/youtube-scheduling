@@ -67,9 +67,6 @@ export default function TemporaryDrawer({ videos, setVideos }) {
             }}
             onKeyPress={handleKeyPress}
           />
-          {/* <IconButton color="secondary" onClick={handleSubmit}>
-            <AddCircleIcon fontSize="large" />
-          </IconButton> */}
         </Stack>
         <ul style={{ listStyle: "none" }}>
           {videos.map((item, index) => {
