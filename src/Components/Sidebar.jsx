@@ -19,6 +19,8 @@ export default function TemporaryDrawer({ videos, setVideos }) {
   const handleSubmit = async (event) => {
     if (searchTerm === "") {
       alert("空文字は入力できません。");
+    } else if (videos.length === 5) {
+      alert("5個までしか登録しないでください。");
     } else {
       const searchUrl = `https://www.googleapis.com/youtube/v3/search?q=${searchTerm}&key=${process.env.REACT_APP_API_KEY}&part=snippet&type=video&eventType=completed&maxResults=8`;
       const response = await axios.get(searchUrl);
