@@ -4,11 +4,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Sidebar from "./Sidebar";
-import AutorenewIcon from "@mui/icons-material/Autorenew";
 import Popup from "./Popup";
-
-import { IconButton } from "@mui/material";
-import axios from "axios";
 
 const darkTheme = createTheme({
   palette: {
@@ -67,27 +63,6 @@ const darkTheme = createTheme({
 });
 
 export default function EnableColorOnDarkAppBar({ videos, setVideos }) {
-  const Reload = () => {
-    if (videos.length === 0) {
-      alert("更新するチャンネルがありません。");
-    } else {
-      videos.map(async (v, index) => {
-        const searchUrl = `https://www.googleapis.com/youtube/v3/search?q=${v.keyword}&key=${process.env.REACT_APP_API_KEY}&part=snippet&type=video&eventType=completed&maxResults=8`;
-        const response = await axios.get(searchUrl);
-        const videoData = response.data.items.map((item) => {
-          return {
-            id: item.id.videoId,
-            url: `https://www.youtube.com/watch?v=${item.id.videoId}`,
-            title: item.snippet.title,
-            thumbnail: item.snippet.thumbnails.high.url,
-          };
-        });
-        v.details = videoData;
-        console.log(v);
-      });
-    }
-  };
-
   return (
     <ThemeProvider theme={darkTheme}>
       <AppBar position="fixed" color="primary">
@@ -102,9 +77,6 @@ export default function EnableColorOnDarkAppBar({ videos, setVideos }) {
           >
             Youtube Scheduler
           </Typography>
-          <IconButton onClick={Reload}>
-            <AutorenewIcon sx={{ color: "green" }} />
-          </IconButton>
           <Popup videos={videos} setVideos={setVideos} />
         </Toolbar>
       </AppBar>
