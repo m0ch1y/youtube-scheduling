@@ -67,6 +67,7 @@ const darkTheme = createTheme({
 
 export default function EnableColorOnDarkAppBar({ videos, setVideos }) {
   const [search_list, setSearch_list] = useState([]);
+
   return (
     <ThemeProvider theme={darkTheme}>
       <AppBar position="fixed" color="primary">
