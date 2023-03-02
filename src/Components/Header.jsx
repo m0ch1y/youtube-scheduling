@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -66,8 +66,6 @@ const darkTheme = createTheme({
 });
 
 export default function EnableColorOnDarkAppBar({ videos, setVideos }) {
-  const [search_list, setSearch_list] = useState([]);
-
   return (
     <ThemeProvider theme={darkTheme}>
       <AppBar position="fixed" color="primary">
@@ -85,7 +83,7 @@ export default function EnableColorOnDarkAppBar({ videos, setVideos }) {
           <IconButton
             color="inherit"
             onClick={() => {
-              Reload(videos, setVideos, search_list, setSearch_list);
+              Reload(videos, setVideos);
             }}
           >
             <SyncIcon sx={{ marginRight: "20px" }} />

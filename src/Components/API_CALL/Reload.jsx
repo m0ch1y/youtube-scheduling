@@ -1,17 +1,8 @@
-import Api_call from "./Api";
-
 import axios from "axios";
 
-const Reload = async (videos, setVideos, search_list, setSearch_list) => {
-  // setSearch_list([]);
-
-  const searchList = Object.keys(videos).map((key) => {
-    return videos[key].keyword;
-  });
-  // setVideos([]);
-
-  const newVideos = [];
-  searchList.forEach(async (keyword) => {
+const getNewVideos = async (searchList) => {
+  let videos = [];
+  for (const keyword of searchList) {
     const searchUrl = `https://www.googleapis.com/youtube/v3/search?q=${keyword}&key=${process.env.REACT_APP_API_KEY}&part=snippet&type=video&eventType=completed&maxResults=8`;
     const response = await axios.get(searchUrl);
     const videoData = response.data.items.map((item) => {
@@ -22,12 +13,21 @@ const Reload = async (videos, setVideos, search_list, setSearch_list) => {
         thumbnail: item.snippet.thumbnails.high.url,
       };
     });
-    newVideos.push({
+    videos.push({
       keyword: keyword,
       details: videoData,
     });
+  }
+  return videos;
+};
+
+const Reload = async (videos, setVideos) => {
+  const searchList = videos.map((video) => {
+    return video.keyword;
   });
-  console.log(newVideos);
+
+  const newVideos = await getNewVideos(searchList);
+
   setVideos(newVideos);
 };
 
