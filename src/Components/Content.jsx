@@ -10,7 +10,7 @@ function Content({ videos }) {
         {videos.map(({ details }, index) => (
           <Stack key={index} direction="row" className="scroll">
             {details.map((video) => (
-              <Box key={video.id} item px={2}>
+              <Box key={video.id} px={2}>
                 <Card
                   title={video.title}
                   thumbnail={video.thumbnail}
