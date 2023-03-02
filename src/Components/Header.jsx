@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import SyncIcon from "@mui/icons-material/Sync";
 import Sidebar from "./Header_Components/Sidebar";
 import Popup from "./Header_Components/Popup";
+import Reload from "./API_CALL/Reload";
+import { IconButton } from "@mui/material";
 
 const darkTheme = createTheme({
   palette: {
@@ -63,6 +66,7 @@ const darkTheme = createTheme({
 });
 
 export default function EnableColorOnDarkAppBar({ videos, setVideos }) {
+  const [search_list, setSearch_list] = useState([]);
   return (
     <ThemeProvider theme={darkTheme}>
       <AppBar position="fixed" color="primary">
@@ -73,10 +77,18 @@ export default function EnableColorOnDarkAppBar({ videos, setVideos }) {
             ml={3}
             noWrap
             component="div"
-            sx={{ flexGrow: 1 }}
+            sx={{ flexGrow: 4 }}
           >
             Youtube Scheduler
           </Typography>
+          <IconButton
+            color="inherit"
+            onClick={() => {
+              Reload(videos, setVideos, search_list, setSearch_list);
+            }}
+          >
+            <SyncIcon sx={{ marginRight: "20px" }} />
+          </IconButton>
           <Popup videos={videos} setVideos={setVideos} />
         </Toolbar>
       </AppBar>

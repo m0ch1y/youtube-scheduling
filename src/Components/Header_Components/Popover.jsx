@@ -48,6 +48,7 @@ export default function MouseOverPopover({ title, videoId }) {
         <Box sx={{ borderRadius: "1000px" }}>
           <Paper>
             <iframe
+              title="youtube"
               width="300"
               height="200"
               style={{ borderRadius: "20px" }}
