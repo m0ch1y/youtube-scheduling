@@ -86,7 +86,7 @@ export default function EnableColorOnDarkAppBar({ videos, setVideos }) {
               Reload(videos, setVideos);
             }}
           >
-            <SyncIcon sx={{ marginRight: "20px" }} />
+            <SyncIcon />
           </IconButton>
           <Popup videos={videos} setVideos={setVideos} />
         </Toolbar>

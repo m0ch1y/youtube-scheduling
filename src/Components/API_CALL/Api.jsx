@@ -18,7 +18,6 @@ const Api_call = async (videos, setVideos, searchTerm) => {
       details: videoData,
     },
   ]);
-  console.log(videos);
 };
 
 export default Api_call;
