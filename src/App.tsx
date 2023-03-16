@@ -5,22 +5,26 @@ import Content from "./Components/Content";
 import { createTheme } from "@mui/material";
 import { ThemeProvider } from "@emotion/react";
 import { useEffect, useState } from "react";
+import { Theme } from "@mui/material/styles";
+import React from "react";
 
-const theme = createTheme({
-  overrides: {
+const theme: Theme = createTheme({
+  components: {
     MuiCssBaseline: {
-      "@global": {
-        "*::-webkit-scrollbar": {
-          display: "none",
+      styleOverrides: {
+        "@global": {
+          "*::-webkit-scrollbar": {
+            display: "none",
+          },
         },
       },
     },
   },
 });
 
-function App() {
+function App(): JSX.Element {
   const data = localStorage.getItem("videos")
-    ? JSON.parse(localStorage.getItem("videos"))
+    ? JSON.parse(localStorage.getItem("videos") as string)
     : [];
   const [videos, setVideos] = useState(data);
   useEffect(() => {
