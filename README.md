@@ -1,8 +1,7 @@
 # 使い方
 ### youtubeのチャンネル登録者がめちゃくちゃ多い人向けに今みたいチャンネルだけを登録して見れるようなアプリ作りました。
 
-→[リンク](https://tech-blog.rakus.co.jp/entry/20200624/markdown](https://youtube-scheduler-5hh5e54uz-m0ch1y.vercel.app/
-)  
+→[リンク](https://youtube-scheduler-5hh5e54uz-m0ch1y.vercel.app/)  
 
 #### 使い方まとめてなかったので簡単にまとめます。
 #### ヘッダーの左のハンバーガーボタンを押すと下図のようなバーが出てくるので登録したいyoutubeのチャンネル名を入力してください
